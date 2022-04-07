@@ -1,0 +1,427 @@
+/* ############################## ESTILOS PARA TODA LA PÁGINA ############################################# */
+
+/* Convirtiendo a variables los colores usados en la hoja de estilo */
+:root {
+    --purple: #5551FF;
+    --gray40: #424242;
+    --gray30: #212121;
+    --gray20: #212429;
+    --gray10: #616161;
+
+}
+
+/* Declarando el modo de deslizamiento de la aplicación al dirigirnos a un enlace interno */
+html {
+    scroll-behavior: smooth;
+}
+
+/* Cambiar el color de todos los links de la página */
+a {
+    color: black;
+}
+
+/* Estilo del diseño del principio */
+.hero {
+    background-image: linear-gradient(274.51deg, rgba(74, 0, 224, 0.6) 5%, rgba(142, 45, 226, 0.5) 130.61%), url('../images/patron-2.png');
+    block-size: 6em;
+}
+
+
+/* Declarando la fuente y sus propiedades, además de quitar el margen 
+por defecto del navegador */
+body {
+    color: var(--gray30);
+    font-family: 'Rubik', sans-serif;
+    font-size: 16px;
+    margin: 0;
+}
+
+/* ############################## ESTILOS DEL HEADER Y LOS ENLACES DE NAVEGACIÓN ################################ */
+/* ############################################################################################################## */
+
+
+/* Colocando margen, en este caso superior, de los contenidos del header (Todos los 
+títulos de navegación; sumado a el color y tamaño de la letra */
+header {
+    margin-block-start: 20px;
+    font-size: 0.875em;
+    color: var(--gray10);
+}
+
+/* Darle un padding-inline al contenido principal del wrapper */
+.header-content {
+    padding-inline: 1em;
+}
+
+/* Cambiar el color de la fuente de los enlaces del header y quitarles el subrayado */
+header a {
+    color: var(--gray10);
+    text-decoration: none;
+}
+
+/* Intencificar el gris de los enlaces del header al pasar por encima de ellos */
+header a:hover {
+    color: var(--gray20);
+}
+
+/* Quitar el margen superior a la frase 'Variantes del Proyecto' */
+.buttons>p {
+    margin-block-start: 0;
+}
+
+/* Colocar  margen inferior para diferenciar las variantes del proyecto de los 
+temas*/
+.buttons:last-child {
+    margin-block-end: 3em;
+}
+
+/* Ocultar las secciones en la nav (mobile first) **/
+nav details, nav .project-sections p {
+    display: none;
+}
+
+/* Cambiar a display block y ponerle padding a los enlaces de las variantes 
+del proyecto */
+nav .buttons a {
+    display: block;
+    padding-inline-start: 8px;
+    padding-block: 8px;
+}
+
+/* Cambiar el estilo de las variantes cuando el usuario se posiciona encima de 
+alguna de las variantes */
+nav .buttons a:hover {
+    background: black;
+    border-radius: 4px;
+    color: white;
+}
+
+/* Alinear correctamente los párrafos de nav */
+nav p {
+    text-align: start;
+}
+
+/* Darle más relevancia a los títulos principales de los contenidos, intencificando
+el peso de la fuente */
+nav details summary { 
+    font-weight: bold;
+}
+
+/* Cambiando el padding predefinido de los ol por el navegador en el header y quitar la enumeración para luego 
+colocarla de forma manual*/
+.header-content ol{
+    padding-inline-start: 0;
+    list-style-type: none;
+}
+
+/* Generar un espacio a los links de los contenidos */
+.header-content ol li a {
+    display: block;
+    padding-inline-start: 8px;
+    padding-block: 8px;
+}
+
+/* Estilos de las listas ordenadas del header cuando se pasa el cursor */
+.header-content ol li a:hover {
+    background: var(--purple);
+    color: white;
+}
+
+/* ############################## ESTILOS DEL MAIN ################################################## */
+/* ################################################################################################## */
+.main {
+    margin-block-end: 1em;
+}
+/* Darle ancho máximo al wrapper que contiene al main-content */
+.wrapper {
+    margin: auto;
+    max-inline-size: 56.375em;
+    padding-block-end: 1.4375em;
+}
+
+/* Darle un padding-inline al contenido principal del wrapper */
+.main-content {
+    padding-inline: 1em;
+}
+
+/* Darle el mismo peso de fuente a todos los títulos */
+h1, h2, h3, h4 {
+    font-weight: 400;
+}
+
+/* Centrar los títulos menos los h4 */
+h1, h2, h3 {
+    text-align: center;
+}
+
+/* Darle tamaño y un margen inferior a los h1 */
+h1 { 
+    font-size: 1.4375em;;
+    margin-block-end: 16px;
+}
+
+/* Darle margen superior e inferior, y tamaño de fuente a los h2 */
+h2 {
+    font-size: 1.4375em;
+    margin-block: 40px;
+}
+
+/* Darle tamaño de fuente, y margen superior e inferior a los h3 y h4 */
+h3, h4 {
+    font-size: 1.25em;
+    margin-block: 16px;
+}
+
+/* En los section-content se desea resetear el counter para que haya un incremento
+en el counter denominado titleList de los h3*/
+.section-content {
+    counter-reset: titleList;
+}
+
+/* Se da un nombre al contador de los h3 y se pone el contenido de ese contador */
+.section-content h3::before {
+    counter-increment: titleList;
+    content: counter(titleList, decimal) ".";
+}
+
+/* Darle margen superior e inferior a los hr, y cambiar su color */
+hr {
+    margin-block: 2.5em;
+    border: 1px solid rgba(97, 97, 97, 0.2);
+}
+
+/* Quitar visualmente el hr que van después de un section-content */
+.section-content ~ hr {
+    display: none;
+}
+
+/* Darle el color correcto de fuente a los párrafos y alinear al centro*/
+p {
+    color: var(--gray40);
+    text-align: center;
+}
+
+/* Darle un tamaño máximo a las imágenes dentro de los section-content
+además de incluirles un margen inferior, además de darles un display block
+para que puedan hacer un margin collapsing, además de centrarlas*/
+.section-content img {
+    margin-block-end: 40px;
+    display: block;
+    max-inline-size: 100%;
+    margin: auto;
+}
+
+/* Darle color, margenes y padding a los textos preformateados,
+además de un movimiento de scroll en caso de que el usuario lo 
+requiera por poco espacio en el viewport*/
+pre {
+    padding-inline: 2.5em;
+    padding-block: 2.5em;
+    margin-block-end: 2.5em;
+    overflow: scroll;
+    border-radius: 8px;
+    border: 10px solid #5551FF;
+    box-shadow: -10px 10px 0 0 #ABAAF6;
+}
+
+/* Centrar los elementos dentros del div que incluye al blockquote */
+.blockquote {
+    margin-inline: auto;
+}
+
+/* Darle estilos a las citas */
+blockquote {
+    max-inline-size: 633px;
+    font-size: 1.5em;
+    margin-block: 2em;
+    margin-inline: auto;
+    padding-inline-start: 1em;
+    border-inline-start: 4px solid var(--purple);
+}
+
+/* Darle estilos a los párrafos en las citas */
+blockquote p {
+    color: var(--gray40);
+    margin-block-end: 1em;
+    text-align: left;
+
+}
+
+/* Darle color a los span dentro de las citas que en este caso
+funcionan como el nombre del autor de la cita */
+blockquote p span{
+    color: var(--gray10);
+}
+
+/* Guión antes del span del blockquote*/
+blockquote p span::before{
+    content: '- ';
+}
+
+ul li::marker {
+    color: var(--purple);
+}
+
+/* Hacer el slider */
+.slider-content {
+    display: block;
+    overflow: auto;
+    scroll-behavior: smooth;
+    white-space: nowrap;
+    font-size: 0;
+}
+
+/* Poner los estilos de los videos para no tener espacios entre ellos */
+.video {
+    margin: 0;
+    display: inline-block;
+    width: 100%;
+    height: auto;
+    aspect-ratio: 16/9;
+}
+
+/* Dar estilos a los puntos de selecci'on de los videos */
+.slider-bullet-list {
+    text-align: center;
+    margin-block-start: 10px;
+}
+
+/* estilos de los circulos que indican en qu'e video se encuentra */
+.slider-bullet {
+    display: inline-block;
+    inline-size: 15px;
+    block-size: 15px;
+    background: rgba(142, 45, 226, 0.5);
+    border-radius: 50%;
+}
+
+/* estilos de los circulos que indican en qu'e video se encuentra cuando el usuario pasa su mouse por encima
+del circulo*/
+.slider-bullet:hover {
+    background: var(--purple);
+}
+
+/* Darle estilos a los inputs del formulario */
+.form input {
+    inline-size: 100%;
+    border: 1px solid var(--gray10);
+    border-radius: 5.625em;
+    box-sizing: border-box;
+    padding-inline: 16px;
+    padding-block: 12px;
+    color: var(--gray30);
+    margin-block-end: 1em;
+    display: block;
+    font-size: 16px;
+    position: relative;
+}
+
+/* encerrar el input de correo electrónico y el botón de suscribción en un solo bloque */
+.submit {
+    inline-size: 100%;
+    display: flex;
+    position: relative;
+}
+
+/* Estilos del input del correo electrónico */
+.form .subs .emailinput {
+    inline-size: 100%;
+    border-inline-end: none;
+    position: absolute;
+}
+
+/* Estilos del botón de suscribcion del formulario y ponerlo hacia la derecha*/
+.form input[type="submit"] {
+    min-inline-size: 7.23875em;
+    max-inline-size: 7.23875em;
+    color: white;
+    border: 1px solid var(--purple);
+    background: var(--purple);
+    position: absolute;
+    right: 0%;
+}
+
+/* Estilos del color de la fuente de los input cuando no esta seleccionado*/
+.form input::-webkit-input-placeholder {
+    color: var(--gray10);
+}
+
+/* ############################## ESTILOS DE MEDIA QUERIES ###################################################### */
+/* ############################################################################################################## */
+
+@media screen and (min-width: 1366px) {
+    /* Aumentar la altura de la imagen del inicio */
+    .hero {
+        block-size: 21.875em;
+    }
+
+    /* Dejar la posición establecida de toda la barra de navegación */
+    header {
+        position: absolute;
+        inset-block-start: 0;
+        inset-inline-end: -208px ;
+        inline-size: 188px;
+    }
+
+    /* Hacer el contenido relativo al header */
+    .header-content{
+        position: relative;
+        inset-block-start: 65px;
+        padding-inline: 0;
+    }
+
+    /* mover la navegación con el scroll */
+    .header {
+        position: sticky;
+        inset-block-start: -45px;
+    }
+
+    /* Modificar  margen inferior para diferenciar las variantes del proyecto de los 
+    temas*/
+    .buttons:last-child {
+        margin-block-end: 5.625em;
+    }
+
+    /* Mostrar las secciones en la nav **/
+    nav details, nav .project-sections p {
+        display: block;
+    }
+
+    /* Cambiar tamaños de los h1 */
+    h1 {
+        font-size: 3.75em;
+        margin-block-start: 64px;
+    }
+
+    /* Cambiar los tamaños de los h2 */
+    h2 {
+    font-size: 2em;
+    }   
+
+    /* Cambiar los tamaños de los h3 y h4 */
+    h3, h4 {
+    font-size: 1.5em;
+    }   
+
+    /* Aumentar el margin block de los hr sobretodo del inicial que es el que se puede visualizar */
+    hr {
+        margin-block: 4em;
+    }
+
+    .form {
+        display: flex;
+    }
+
+    .form .nombreinput {
+        margin-inline-end: 1em;
+    }
+
+    .form input[type="submit"] {
+        right: -20px;
+    }
+
+    .form input {
+        inline-size: 280px;
+    }
+}
+
